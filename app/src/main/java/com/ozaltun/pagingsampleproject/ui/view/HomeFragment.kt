@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ozaltun.pagingsampleproject.R
 import com.ozaltun.pagingsampleproject.databinding.FragmentHomeBinding
@@ -43,7 +44,7 @@ class HomeFragment : Fragment() {
         userAdapter = HomeFragmentAdapter()
         binding.recyclerView.apply {
             adapter = userAdapter
-            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
             setHasFixedSize(true)
         }
     }

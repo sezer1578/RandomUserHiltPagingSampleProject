@@ -31,17 +31,19 @@ class HomeFragmentAdapter :
     }
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
-        val currChar = getItem(position)
+        val data = getItem(position)
         holder.binding.apply {
             holder.itemView.apply {
-                tvDescription.text = "${currChar?.name?.first}"
-                val imageLink = currChar?.picture?.thumbnail
+                tvName.text = "${data?.name?.first + "-" + data?.name?.last}"
+                tvMail.text = "${data?.email}"
+                tvPhone.text = "${data?.phone}"
+                val imageLink = data?.picture?.thumbnail
                 imageView.load(imageLink) {
                     crossfade(true)
                     crossfade(1000)
                 }
-                imageView.setOnClickListener {
-                    val nav = HomeFragmentDirections.actionHomeFragmentToDetailFragment(currChar)
+                cardView.setOnClickListener {
+                    val nav = HomeFragmentDirections.actionHomeFragmentToDetailFragment(data)
                     Navigation.findNavController(it).navigate(nav)
                 }
             }

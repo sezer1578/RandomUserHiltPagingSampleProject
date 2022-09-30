@@ -21,8 +21,8 @@ class DetailFragment : Fragment() {
     ): View? {
         binding = FragmentDetailBinding.inflate(inflater, container, false)
 
-        val bunle: DetailFragmentArgs by navArgs()
-        val getData = bunle.data
+        val bundle: DetailFragmentArgs by navArgs()
+        val getData = bundle.data
 
 
         val imageLink = getData?.picture?.large
@@ -30,7 +30,11 @@ class DetailFragment : Fragment() {
             crossfade(true)
             crossfade(1000)
         }
-        binding.textViewDetail.text = getData?.name?.first
+        binding.apply {
+            textViewDetail.text = getData?.name?.first
+            tvMailDetail.text = getData?.email
+            tvPhoneDetail.text = getData?.phone
+        }
         return binding.root
     }
 }
