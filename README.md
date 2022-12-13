@@ -10,6 +10,7 @@ For basic project click [here](https://github.com/sezer1578/RandomUserBasicSampl
 + Kotlin Coroutines
 + Hilt
 + Paging3
++ Repository
 + Coil
 
 # ScreenShot
